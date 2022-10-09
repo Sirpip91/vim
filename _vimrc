@@ -5,7 +5,7 @@ au GUIEnter * simalt ~x
 set hls
 set is
 set cb=unnamed
-set gfn=Fixedsys:h10
+set gfn=Fixedsys:h16
 set ts=4
 set sw=4
 set si
@@ -63,6 +63,17 @@ function MyDiff()
     let &shellxquote=l:shxq_sav
   endif
 endfunction
+
+
+if has("gui_running")
+  if has("gui_gtk2")
+    set guifont=Inconsolata\ 12
+  elseif has("gui_macvim")
+    set guifont=Menlo\ Regular:h50
+  elseif has("gui_win32")
+    set guifont=Consolas:h19:cANSI
+  endif
+endif
 
 set visualbell t_vb=
 if has("autocmd") && has("gui")
